@@ -11,10 +11,10 @@ process.env.VUE_APP_BUILD_TIME = require('dayjs')().format('YYYY-M-D HH:mm:ss')
 let publicPath = '/'
 
 module.exports = {
-  publicPath, // 根据你的实际情况更改这里
+  //publicPath, // 根据你的实际情况更改这里
   lintOnSave: true,
   devServer: {
-    publicPath // 和 publicPath 保持一致
+    proxy: 'http://127.0.0.1:7001'
   },
   css: {
     loaderOptions: {

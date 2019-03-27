@@ -51,26 +51,26 @@
                 <el-button size="default" @click="submit" type="primary" class="button-login">登录</el-button>
               </el-form>
             </el-card>
-            <p
-              class="page-login--options"
-              flex="main:justify cross:center">
-              <span><d2-icon name="question-circle"/> 忘记密码</span>
-              <span>注册用户</span>
-            </p>
+            <!--<p-->
+              <!--class="page-login&#45;&#45;options"-->
+              <!--flex="main:justify cross:center">-->
+              <!--<span><d2-icon name="question-circle"/> 忘记密码</span>-->
+              <!--<span>注册用户</span>-->
+            <!--</p>-->
             <!-- 快速登录按钮 -->
-            <el-button class="page-login--quick" size="default" type="info" @click="dialogVisible = true">
-              快速选择用户（测试功能）
-            </el-button>
+            <!--<el-button class="page-login&#45;&#45;quick" size="default" type="info" @click="dialogVisible = true">-->
+              <!--快速选择用户（测试功能）-->
+            <!--</el-button>-->
           </div>
         </div>
         <div class="page-login--content-footer">
-          <p class="page-login--content-footer-options">
-            <a href="#">帮助</a>
-            <a href="#">隐私</a>
-            <a href="#">条款</a>
-          </p>
+          <!--<p class="page-login&#45;&#45;content-footer-options">-->
+            <!--<a href="#">帮助</a>-->
+            <!--<a href="#">隐私</a>-->
+            <!--<a href="#">条款</a>-->
+          <!--</p>-->
           <p class="page-login--content-footer-copyright">
-            Copyright <d2-icon name="copyright"/> 2018 D2 Projects 开源组织出品 <a href="https://github.com/FairyEver">@FairyEver</a>
+            Copyright <d2-icon name="copyright"/> 鲁ICP备17037204号-2 <a href="https://www.hanchunrun.cn">@Rain</a>
           </p>
         </div>
       </div>
@@ -192,7 +192,7 @@ export default {
             code: this.formLogin.code
           })
             .then(() => {
-              console.log(".........")
+              // console.log(".........",res)
               // 重定向对象不存在则返回顶层路径
               this.$router.replace(this.$route.query.redirect || '/')
             })

@@ -1,6 +1,7 @@
 import cookies from './util.cookies'
 import db from './util.db'
 import log from './util.log'
+import { Message } from 'element-ui'
 
 const util = {
   cookies,
@@ -31,4 +32,15 @@ util.open = function (url) {
   document.body.removeChild(document.getElementById('d2admin-link-temp'))
 }
 
+util.showMessage = function ({ msg, code }) {
+  if (msg === '') {
+    return
+  }
+  // 显示提示
+  Message({
+    message: msg || (code === 0 ? '操作成功' : '操作失败'),
+    type: code === 0 ? 'success' : 'error',
+    duration: 5 * 1000
+  })
+}
 export default util

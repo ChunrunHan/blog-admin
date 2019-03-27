@@ -26,17 +26,18 @@ export default {
           code
         })
           .then(async res => {
-            console.log(res)
+            console.log('登录成功返回的数据', res)
             // 设置 cookie 一定要存 uuid 和 token 两个 cookie
             // 整个系统依赖这两个数据进行校验和存储
             // uuid 是用户身份唯一标识 用户注册的时候确定 并且不可改变 不可重复
             // token 代表用户当前登录状态 建议在网络请求中携带 token
-            // 如有必要 token 需要定时更新，默认保存一天
-            // util.cookies.set('uuid', res.uuid)
-            // util.cookies.set('token', res.token)
+            //如有必要 token 需要定时更新，默认保存一天
+            util.cookies.set('uuid', res.id)
+            util.cookies.set('token', res.token)
+            // localStorage['token'] = res.token
             // 设置 vuex 用户信息
             await dispatch('d2admin/user/set', {
-              name: res.name
+              name: res.username
             }, { root: true })
             console.log('load........')
             // 用户登录后从持久化数据加载一系列的设置
@@ -60,6 +61,7 @@ export default {
       /**
        * @description 注销
        */
+      console.log("注销啊。。。。。。")
       async function logout () {
         // 删除cookie
         util.cookies.remove('token')
@@ -71,6 +73,7 @@ export default {
           name: 'login'
         })
       }
+
       // 判断是否需要确认
       if (confirm) {
         commit('d2admin/gray/set', true, { root: true })
@@ -99,22 +102,22 @@ export default {
       return new Promise(async resolve => {
         // DB -> store 加载用户名
         await dispatch('d2admin/user/load', null, { root: true })
-        console.log("userload")
+        console.log('userload')
         // DB -> store 加载主题
         await dispatch('d2admin/theme/load', null, { root: true })
-        console.log("themeload")
+        console.log('themeload')
         // DB -> store 加载页面过渡效果设置
         await dispatch('d2admin/transition/load', null, { root: true })
-        console.log("transload")
+        console.log('transload')
         // DB -> store 持久化数据加载上次退出时的多页列表
         await dispatch('d2admin/page/openedLoad', null, { root: true })
-        console.log("openedload")
+        console.log('openedload')
         // DB -> store 持久化数据加载侧边栏折叠状态
         await dispatch('d2admin/menu/asideCollapseLoad', null, { root: true })
-        console.log("loadload")
+        console.log('loadload')
         // DB -> store 持久化数据加载全局尺寸
         await dispatch('d2admin/size/load', null, { root: true })
-        console.log("sizeload")
+        console.log('sizeload')
         // end
         resolve()
       })
