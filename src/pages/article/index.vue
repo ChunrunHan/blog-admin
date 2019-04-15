@@ -172,7 +172,7 @@ export default {
     uploadComplete (res) {
       console.log(res)
       let { pos } = this
-      let url = 'http://po8vwrl7r.bkt.clouddn.com/' + res.key
+      let url = 'http://hanchunrun.cn/' + res.key
       this.$refs.md.$img2Url(pos, url)
     },
     // 删除文件
