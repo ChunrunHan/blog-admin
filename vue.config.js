@@ -12,6 +12,8 @@ let publicPath = '/'
 
 module.exports = {
   //publicPath, // 根据你的实际情况更改这里
+  //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
+  assetsDir: 'static',
   lintOnSave: true,
   devServer: {
     proxy: 'http://127.0.0.1:7001'
